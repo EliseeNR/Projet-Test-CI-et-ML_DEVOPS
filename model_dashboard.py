@@ -20,7 +20,7 @@ if taille <= 0:
 if nb_rooms <= 0:
     st.write("mettre nombre de chambre correct")
 
-if garden != 0 or 1:
+if int(garden) != 0 or 1:
     st.write("mettre 0 ou 1")
 
 if taille > 0 and nb_rooms > 0 and garden != 0 or garden == 1:
