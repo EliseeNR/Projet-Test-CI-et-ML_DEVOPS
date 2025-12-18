@@ -1,0 +1,47 @@
+name: Cypress Tests fonctionnel du tableau de bord
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Vérifier le code source
+      - uses: actions/checkout@v4
+
+      # Installer Python (pour Streamlit)
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      # Installer Node.js (pour Cypress)
+      - name: Set up Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      # Installer les dépendances Python
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install streamlit joblib
+
+      # Installer Cypress
+      - name: Install Cypress
+        run: |
+          npm install cypress --save-dev
+
+      # Lancer le serveur Streamlit en arrière-plan
+      - name: Run Streamlit app
+        run: |
+          streamlit run model_dashboard.py &
+          sleep 10 
+
+      # Lancer Cypress
+      - name: Run Cypress tests
+        run: |
+          npx cypress run
