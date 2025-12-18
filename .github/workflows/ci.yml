@@ -16,7 +16,7 @@ jobs:
         with:
           python-version: '3.11'
 
-      # Installer les librairies pour le fonciotnnement du moèle et des tests unitaires
+      # Installer les librairies pour le fonctionnement du modèle et des tests unitaires
       - name: Install libraries
         run: |
           python -m pip install --upgrade pip

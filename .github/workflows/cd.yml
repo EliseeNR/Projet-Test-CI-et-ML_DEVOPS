@@ -18,17 +18,17 @@ jobs:
         with:
           python-version: '3.11'
 
+      # Installer les librairies pour le fonctionnement du modèle et des tests unitaires
+      - name: Install libraries
+        run: |
+          python -m pip install --upgrade pip
+          pip install streamlit joblib pytest scikit-learn
+
       # Installer Node.js (pour Cypress)
       - name: Set up Node
         uses: actions/setup-node@v3
         with:
           node-version: '20'
-
-      # Installer les dépendances Python
-      - name: Install Python dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install streamlit joblib
 
       # Installer Cypress
       - name: Install Cypress
