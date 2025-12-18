@@ -16,10 +16,14 @@ model = load_model()
 
 if taille <= 0:
     st.write('mettre taille correcte')
+
 if nb_rooms <= 0:
     st.write("mettre nombre de chambre correct")
 
-if taille > 0 and nb_rooms > 0:
+if garden != 0 or 1:
+    st.write("mettre 0 ou 1")
+
+if taille > 0 and nb_rooms > 0 and garden != 0 or garden == 1:
     
     X = [[taille, nb_rooms, garden]]
     prediction = model.predict(X)
