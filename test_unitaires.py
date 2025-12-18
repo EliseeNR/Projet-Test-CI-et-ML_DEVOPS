@@ -21,3 +21,7 @@ def test_prediction_type(model):
     X = [[80, 2, 0]]
     prediction = model.predict(X)
     assert isinstance(prediction[0], float)
+
+model = load_model()
+test_prediction_positive(model)
+test_prediction_type(model)
