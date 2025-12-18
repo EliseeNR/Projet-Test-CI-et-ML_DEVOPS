@@ -1,0 +1,27 @@
+name: Test Unitaires du modèle
+
+on: [push]
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Vérifier le code source
+      - uses: actions/checkout@v4
+
+      # Installer Python
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      # Installer les librairies pour le fonciotnnement du moèle et des tests unitaires
+      - name: Install libraries
+        run: |
+          python -m pip install --upgrade pip
+          pip install streamlit joblib pytest
+
+      # Lancer les tests unitaires avec pytest
+      - name: Run Pytest
+        run: pytest
