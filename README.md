@@ -26,4 +26,17 @@ Partie 3 : bonus pour avoir la note parfaite
 
 Bonus 1 : Faire en sorte de créer un Dockerfile permettant de créer une image docker faisant tourner le streamlit dans un docker.
 Bonus 2 : faire en sorte de push l'image construite dans la pipeline sur dockerhub
+
+
+Commandes à exécuter :
+
+## lancer test fonctionnels cypress
+# lancer seuveur streamlit
+Start-Process python -ArgumentList "-m streamlit run model_dashboard.py"
+# lancer les test cypres
+npx cypress run --config-file cypress.config.js
+
+## lancer les test unitaires
+python -m pytest     
+
  
